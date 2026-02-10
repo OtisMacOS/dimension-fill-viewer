@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维度填充结果查看 - 跑步鞋_商品维度填充_主表+RUNNING_20260210_133330.xlsx</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 100%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+        
+        .info {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f0f7ff;
+            border-left: 4px solid #1890ff;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        th {
+            background: #1890ff;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e8e8e8;
+            position: relative;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .id-col {
+            background: #fafafa;
+            font-weight: 600;
+            color: #1890ff;
+        }
+        
+        .dimension-cell {
+            cursor: help;
+            position: relative;
+        }
+        
+        .dimension-cell:hover {
+            background-color: #e6f7ff;
+        }
+        
+        /* Tooltip 样式 */
+        .tooltip {
+            display: none;
+            position: absolute;
+            background: #fff;
+            border: 2px solid #1890ff;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            min-width: 300px;
+            max-width: 500px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .tooltip.show {
+            display: block;
+        }
+        
+        .tooltip-header {
+            font-weight: 600;
+            color: #1890ff;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        
+        .tooltip-section {
+            margin-bottom: 12px;
+        }
+        
+        .tooltip-label {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        
+        .tooltip-value {
+            color: #333;
+            word-break: break-word;
+        }
+        
+        .tooltip-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tooltip-field-tag {
+            background: #e6f7ff;
+            color: #1890ff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .tooltip-text {
+            background: #f9f9f9;
+            padding: 8px;
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        
+        .empty-cell {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>维度填充结果查看</h1>
+        <div class="info">
+            <strong>文件:</strong> 跑步鞋_商品维度填充_主表+RUNNING_20260210_133330.xlsx<br>
+            <strong>生成时间:</strong> 2026-02-10 13:33:36<br>
+            <strong>商品数:</strong> 9 | <strong>维度数:</strong> 53
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="id-col">商品代码 (model_code)</th> <th class="id-col">DSM代码 (dsm_code)</th>
+                    <th>质保与售后</th> <th>适用足弓</th> <th>适用水平</th> <th>适用人群</th> <th>适用强度</th> <th>适用配速</th> <th>适用路面</th> <th>适用距离</th> <th>适用脚型</th> <th>适用场景</th> <th>产品类型</th> <th>型号代码</th> <th>价格</th> <th>上市时间</th> <th>产品系列</th> <th>产品名称</th> <th>环保与可持续性</th> <th>运动细分与品类</th> <th>配色方案</th> <th>设计风格</th> <th>鞋头设计</th> <th>保暖性能</th> <th>防水性能</th> <th>核心功能</th> <th>缓震性能</th> <th>回弹性能</th> <th>耐磨性能</th> <th>舒适性</th> <th>碳板科技</th> <th>透气性能</th> <th>推进力</th> <th>稳定支撑性能</th> <th>鞋面包裹</th> <th>抓地防滑性能</th> <th>设计理念</th> <th>鞋楦宽度</th> <th>帮面材质</th> <th>非碳板支撑结构</th> <th>里料</th> <th>鞋垫材质</th> <th>外底材质</th> <th>鞋底厚度</th> <th>落差</th> <th>中底材质</th> <th>重量</th> <th>保养建议</th> <th>适用温度</th> <th>适用天数</th> <th>适用天气</th> <th>适用体型</th> <th>适用特殊人群</th> <th>适用时段</th> <th>适用季节</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="id-col">8488448</td>
+                    <td class="id-col">100260</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用足弓"
+                        data-fields="[&quot;structurations&quot;]"
+                        data-text="中性"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        正常足弓
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="[{&#x27;text&#x27;: &#x27;女士&#x27;}]；女士日常慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        女
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;, &quot;structurations&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；跑步强度: 0至10公里/周、10至30公里/周"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟，周跑量≤20km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用配速"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        6-7分配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;designed_for&quot;, &quot;catch_line&quot;, &quot;structurations&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；3mm凸纹抓地力外底，无论平地公路还是轻型砂石路面，都能牢牢地踏稳每一步。；地面: 公路、小路"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，轻越野
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；我们设计团队开发的这款女式跑鞋可为长达10公里的长跑提供缓震和防滑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        5-10km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距抓地力跑鞋 ACTIVE GRIP；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距抓地力跑鞋 ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;active_price&quot;]"
+                        data-text="169.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        169.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2023-09-04 14:42:01"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2023-09
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；女士缓震短距抓地力跑鞋 ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;web_label&quot;, &quot;segmentation&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；公路跑；女士缓震短距抓地力跑鞋 ACTIVE GRIP；鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系，支撑稳定系
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="配色方案"
+                        data-fields="[&quot;color_label&quot;, &quot;color&quot;]"
+                        data-text="雪白/粉洋红色/雪白；雪白、粉洋红色、雪白"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        雪白/粉洋红色/雪白
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计风格"
+                        data-fields="[&quot;web_label&quot;]"
+                        data-text="女士缓震短距抓地力跑鞋 ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        运动简约
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="鞋跟处采用CS技术，提供良好缓震效果。；鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性；脚背的带状鞋带穿孔，提供更佳的支撑性能。；缓震性: 鞋跟处采用CS技术，提供良好缓震效果。；抓地力: 鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，抓地力，包裹舒适
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="缓震性能"
+                        data-fields="[&quot;benefits&quot;, &quot;functionalities&quot;]"
+                        data-text="鞋跟处采用CS技术，提供良好缓震效果。；EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震效果。
+鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        40–50 Shore C
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；舒适性: 脚跟和鞋舌处加厚泡沫。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹舒适，鞋垫柔软
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="稳定支撑性能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        支撑型，足弓支撑强化
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋面包裹"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹性好，包裹感强
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="抓地防滑性能"
+                        data-fields="[&quot;benefits&quot;, &quot;catch_line&quot;, &quot;functionalities&quot;]"
+                        data-text="鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性；3mm凸纹抓地力外底，无论平地公路还是轻型砂石路面，都能牢牢地踏稳每一步。；抓地力是越野跑和公路跑跑鞋的重要性能之一。因此，选择一款配有凹凸鞋底、提供出色抓地力的鞋子非常重要。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        干地摩擦系数 0.8–1.0
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;designed_for&quot;, &quot;webCatchline&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；带鞋钉，跑起来安全舒适，适合女士。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，休闲跑适配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="中型；足宽: 中等宽度"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面
+50% 聚氨酯, 50% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚氨酯，聚酯纤维
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底
+60% 合成橡胶, 40% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="10毫米；足跟差: 10毫米"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;functionalities&quot;]"
+                        data-text="EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震效果。
+鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE 抓地跑鞋多重呢: 255克（38码）"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        250–300g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE GRIP 跑鞋如何护理？: 请勿机洗，这会破坏鞋子的物理特性，导致脚顶部的网格脱落、收缩或者撕裂。
+因此我们建议鞋子非常脏（粘上泥巴）时，可使用小型的合成刷子粘上肥皂水擦洗鞋子。请勿使用漂白剂！请使用清水冲洗。
+禁止将鞋子放在热源处烘干。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        建议手洗，阴干，避免暴晒，避免烘干
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="非防水；防水: 非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8488626</td>
+                    <td class="id-col">145826</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用足弓"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        正常足弓
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="男士；男士公路跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        男
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；0至10公里/周；跑步强度: 0至10公里/周"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟，周跑量≤20km
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="地面: 公路、小路；地面: 公路；小路"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，森林小径
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="步伐类型: 中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;]"
+                        data-text="日常慢跑；慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;]"
+                        data-text="日常慢跑；慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;list_price&quot;, &quot;active_price&quot;]"
+                        data-text="149.9；149.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        149.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:45:46"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;, &quot;modelInfoName&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；男士缓震短距轻量跑鞋 ACTIVE；男士缓震短距轻量跑鞋 RUN ACTIVE"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="日常慢跑；慢跑鞋；地面: 公路、小路；鞋子类型: 缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="配色方案"
+                        data-fields="[&quot;color_label&quot;, &quot;color&quot;]"
+                        data-text="黑色；烟熏黑"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        石墨黑
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;catch_line&quot;, &quot;productPlusPoint&quot;, &quot;userBenefits&quot;]"
+                        data-text="位于跑鞋后跟内的CS®缓震系统能提供不错的缓震效果。；缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！；轻量减震。；缓震性: 位于跑鞋后跟内的CS®缓震系统能提供不错的缓震效果。；舒适性: 内衬设计穿着更舒适。；轻盈性: 约245g （43码）。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，轻量敏捷，舒适性
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;composition&quot;]"
+                        data-text="内衬设计穿着更舒适。；舒适性: 内衬设计穿着更舒适。；衬里和内垫 100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        高，包裹舒适，鞋垫柔软
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;designed_for&quot;, &quot;webCatchline&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；轻量跑鞋，后跟带有减震系统设计更减震。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，休闲跑适配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="中型；足宽: 中等宽度"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面 70% 聚氨酯, 30% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚氨酯，聚酯纤维
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫 100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫 100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底 50% 合成橡胶, 50% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;functionalities&quot;, &quot;characteristics&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="鞋底前后部位有10毫米高度差。；坡差: 鞋底前后部位有10毫米高度差。；水滴: 10毫米；足跟差: 10毫米"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;catch_line&quot;, &quot;composition&quot;]"
+                        data-text="缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！；鞋底 50% 合成橡胶, 50% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;benefits&quot;, &quot;functionalities&quot;, &quot;characteristics&quot;, &quot;userBenefits&quot;]"
+                        data-text="约245g （43码）。；重量: 约245g （43码）。；轻盈性: 约245g （43码）。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        250–300g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;storage_advice&quot;, &quot;storageAdvice&quot;]"
+                        data-text="穿着后建议放置在干爽通风的位置，避免阳光直射。；穿着后建议放置在干爽通风的位置，避免阳光直射。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        阴干，避免暴晒
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="四季；季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="非防水；防水: 非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="四季；季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8488639</td>
+                    <td class="id-col">100428</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="[{&#x27;text&#x27;: &#x27;男士&#x27;}]；男士公路跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        男
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;designed_for&quot;, &quot;catch_line&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；3mm凸纹抓地力外底，无论平地公路还是轻型砂石路面，都能牢牢地踏稳每一步。；[{&#x27;text&#x27;: &#x27;定期&#x27;, &#x27;title&#x27;: &#x27;频率&#x27;}, {&#x27;text&#x27;: &#x27;公路&#x27;, &#x27;title&#x27;: &#x27;地面&#x27;}, {&#x27;text&#x27;: &#x27;草地&#x27;, &#x27;title&#x27;: &#x27;地面&#x27;}, {&#x27;text&#x27;: &#x27;沥青路面&#x27;, &#x27;title&#x27;: &#x27;地面&#x27;}, {&#x27;text&#x27;: &#x27;土地&#x27;, &#x27;title&#x27;: &#x27;地面&#x27;}, {&#x27;text&#x27;: &#x27;沙地&#x27;, &#x27;title&#x27;: &#x27;地面&#x27;}, {&#x27;text&#x27;: &#x27;缓震及稳定性&#x27;, &#x27;title&#x27;: &#x27;鞋子类型&#x27;}]；地面: 公路、小路"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，轻越野
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;, &quot;webCatchline&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；鞋钉减震效果好，抓地力强。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}, {&#x27;id&#x27;: 107, &#x27;text&#x27;: &#x27;越野跑&#x27;}]；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sub_department&quot;]"
+                        data-text="慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;active_price&quot;]"
+                        data-text="199.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        199.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:46:35"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;, &quot;modelInfoName&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；男士缓震短距抓地力跑鞋 ACTIVE GRIP；男士缓震短距抓地力跑鞋 RUN ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}, {&#x27;id&#x27;: 107, &#x27;text&#x27;: &#x27;越野跑&#x27;}]；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，越野跑，慢跑训练
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="配色方案"
+                        data-fields="[&quot;color_label&quot;, &quot;color&quot;]"
+                        data-text="黑色；烟熏黑"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        石墨黑
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="[{&#x27;image_url&#x27;: &#x27;https://pixl.decathlon.com.cn/b82702/k$1e99702adf878b91fd849aab68125127/content.jpg&#x27;, &#x27;text&#x27;: &#x27;EVA中底，后跟采用CS®缓震技术。&#x27;, &#x27;title&#x27;: &#x27;缓震性&#x27;}, {&#x27;image_url&#x27;: &#x27;https://pixl.decathlon.com.cn/b82698/k$e855e947d37a845729785ce1c0fc166e/content.jpg&#x27;, &#x27;text&#x27;: &#x27;鞋底3毫米凸纹，在平地或山地路面上具有良好的抓地性。&#x27;, &#x27;title&#x27;: &#x27;抓地力&#x27;}, {&#x27;image_url&#x27;: &#x27;https://pixl.decathlon.com.cn/b72389/k$7a0b0d6528361a79a85d0f5b322a305d/content.jpg&#x27;, &#x27;text&#x27;: &#x27;跑鞋由透气材料制成，脚跟和鞋舌处采用加厚泡沫设计。&#x27;, &#x27;title&#x27;: &#x27;舒适性&#x27;}]；缓震性: EVA中底，后跟采用CS®缓震技术。；抓地力: 鞋底3毫米凸纹，在平地或山地路面上具有良好的抓地性。；舒适性: 跑鞋由透气材料制成，脚跟和鞋舌处采用加厚泡沫设计。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，抓地力，舒适性
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;composition&quot;]"
+                        data-text="跑鞋由透气材料制成，脚跟和鞋舌处采用加厚泡沫设计。；舒适性: 跑鞋由透气材料制成，脚跟和鞋舌处采用加厚泡沫设计。；衬里和内垫 100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹舒适，鞋垫柔软
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="稳定支撑性能"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="[{&#x27;text&#x27;: &#x27;缓震及稳定性&#x27;, &#x27;title&#x27;: &#x27;鞋子类型&#x27;}]；鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        稳定型
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        休闲跑适配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="足宽: 中等宽度"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面 50% 聚氨酯, 50% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚氨酯，聚酯纤维
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫 100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫 100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底 60% 合成橡胶, 40% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;functionalities&quot;, &quot;characteristics&quot;]"
+                        data-text="鞋底前后部位有10毫米高度差。；坡差: 鞋底前后部位有10毫米高度差。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="EVA中底，后跟采用CS®缓震技术。；缓震性: EVA中底，后跟采用CS®缓震技术。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;functionalities&quot;, &quot;characteristics&quot;]"
+                        data-text="43码约重295g。；重量: 43码约重295g。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        250–300g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;storage_advice&quot;, &quot;storageAdvice&quot;]"
+                        data-text="建议避免阳光直晒（紫外线）。；建议避免阳光直晒（紫外线）。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        避免暴晒
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="防水: 非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8558239</td>
+                    <td class="id-col">100260</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;, &quot;web_label&quot;]"
+                        data-text="[{&#x27;text&#x27;: &#x27;女士&#x27;}]
+女士日常慢跑鞋
+女士缓震短距抓地力跑鞋 ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        女
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+0至10公里/周
+跑步强度: 0至10公里/周、10至30公里/周；频率: 偶尔运动使用"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟，周跑量≤20km
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;designed_for&quot;, &quot;catch_line&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+3mm凸纹抓地力外底，无论平地公路还是轻型砂石路面，都能牢牢地踏稳每一步。
+地面: 公路
+地面: 公路、小路"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，轻越野
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+距离:"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="步伐类型: 中性
+步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]
+女士缓震短距抓地力跑鞋 ACTIVE GRIP
+ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]
+女士缓震短距抓地力跑鞋 ACTIVE GRIP
+ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;list_price&quot;, &quot;active_price&quot;]"
+                        data-text="199.9
+199.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        199.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:43:01"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;, &quot;modelInfoName&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+女士缓震短距抓地力跑鞋 ACTIVE GRIP
+女士缓震短距抓地力跑鞋
+RUN ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]
+公路跑
+ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系，支撑稳定系
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="配色方案"
+                        data-fields="[&quot;color_label&quot;, &quot;color&quot;]"
+                        data-text="雪白
+雪白"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        雪白
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;segmentation&quot;]"
+                        data-text="缓震性: 鞋跟处采用CS技术，提供良好缓震效果。
+抓地力: 鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性
+包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。
+鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，抓地力，稳定支撑
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;segmentation&quot;]"
+                        data-text="包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。
+舒适性: 脚跟和鞋舌处加厚泡沫。
+可拆卸鞋垫: 可拆卸鞋垫"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹舒适，鞋垫柔软
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="稳定支撑性能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;segmentation&quot;]"
+                        data-text="包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。
+鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        支撑型，足弓支撑强化
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋面包裹"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。
+包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹性好，包裹感强
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;designed_for&quot;, &quot;webCatchline&quot;, &quot;productPlusPoint&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+带鞋钉，跑起来安全舒适，适合女士。
+适用于户外跑步时穿着，提供抓地力与支撑性。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，保护性优先
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="足宽: 中等宽度
+足宽: 中型"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面
+50% 聚氨酯, 50% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚氨酯，聚酯纤维
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;, &quot;segmentation&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维
+可拆卸鞋垫: 可拆卸鞋垫"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底
+60% 合成橡胶, 40% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;structurations&quot;, &quot;characteristics&quot;]"
+                        data-text="水滴: 10毫米
+RUN ACTIVE GRIP 跑鞋的落差是多少？: &#x27;&#x27;落差&quot;即运动鞋的后部（鞋跟）和前部（前脚）之间的高度差。鞋底前后部位有10毫米高度差。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;functionalities&quot;, &quot;composition&quot;]"
+                        data-text="EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震效果。
+鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。
+鞋底
+60% 合成橡胶, 40% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE 抓地跑鞋多重呢: 255克（38码）"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        250–300g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE GRIP 跑鞋如何护理？: 请勿机洗，这会破坏鞋子的物理特性，导致脚顶部的网格脱落、收缩或者撕裂。
+因此我们建议鞋子非常脏（粘上泥巴）时，可使用小型的合成刷子粘上肥皂水擦洗鞋子。请勿使用漂白剂！请使用清水冲洗。
+禁止将鞋子放在热源处烘干。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        建议手洗，阴干，避免暴晒，避免烘干，局部清洁
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+频率: 偶尔运动使用"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="防水: 非防水
+防水: 非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8558959</td>
+                    <td class="id-col">145853</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用足弓"
+                        data-fields="[&quot;structurations&quot;]"
+                        data-text="{&quot;text&quot;:&quot;中性&quot;,&quot;title&quot;:&quot;步伐类型&quot;}"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        正常足弓
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="{&quot;text&quot;:&quot;女士&quot;}
+女士日常慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        女
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+{&quot;text&quot;:&quot;0至10公里/周&quot;,&quot;title&quot;:&quot;跑步强度&quot;},{&quot;text&quot;:&quot;10-20公里/周&quot;,&quot;title&quot;:&quot;跑步强度&quot;}
+跑步强度: 0至10公里/周"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟，周跑量≤20km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用配速"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        6-7分配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;structurations&quot;, &quot;sub_department&quot;]"
+                        data-text="{&quot;text&quot;:&quot;公路&quot;,&quot;title&quot;:&quot;地面&quot;},{&quot;text&quot;:&quot;小路&quot;,&quot;title&quot;:&quot;地面&quot;}
+公路跑"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，森林小径
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="{&quot;text&quot;:&quot;中性&quot;,&quot;title&quot;:&quot;步伐类型&quot;}
+步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;designed_for&quot;, &quot;web_label&quot;]"
+                        data-text="{&quot;id&quot;:105,&quot;text&quot;:&quot;日常慢跑&quot;}
+ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+女士缓震短距轻量跑鞋 ACTIVE"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑，恢复跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;segmentation&quot;]"
+                        data-text="{&quot;id&quot;:105,&quot;text&quot;:&quot;日常慢跑&quot;}
+女士缓震短距轻量跑鞋 ACTIVE
+鞋子类型: 缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;active_price&quot;]"
+                        data-text="149.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        149.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:44:47"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;, &quot;modelInfoName&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+女士缓震短距轻量跑鞋 ACTIVE
+女士缓震短距轻量跑鞋
+RUN ACTIVE"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;segmentation&quot;]"
+                        data-text="{&quot;id&quot;:105,&quot;text&quot;:&quot;日常慢跑&quot;}
+公路跑
+鞋子类型: 缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计风格"
+                        data-fields="[&quot;web_label&quot;, &quot;productPlusPoint&quot;]"
+                        data-text="女士缓震短距轻量跑鞋 ACTIVE
+减震、轻盈。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        运动简约
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;productPlusPoint&quot;, &quot;catch_line&quot;]"
+                        data-text="鞋跟处采用CS技术，提供良好缓震效果。
+合成材质鞋带让其提供更好的固定性。
+204克（39码）
+减震、轻盈。
+缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，轻量敏捷，包裹舒适
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="缓震性能"
+                        data-fields="[&quot;benefits&quot;, &quot;catch_line&quot;, &quot;characteristics&quot;]"
+                        data-text="鞋跟处采用CS技术，提供良好缓震效果。
+缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！
+EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震性。鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        30–40 Shore C
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;designed_for&quot;]"
+                        data-text="合成材质鞋带让其提供更好的固定性。
+ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹舒适，不累脚
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="稳定支撑性能"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="{&quot;text&quot;:&quot;中性&quot;,&quot;title&quot;:&quot;步伐类型&quot;}
+步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        低
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋面包裹"
+                        data-fields="[&quot;benefits&quot;]"
+                        data-text="合成材质鞋带让其提供更好的固定性。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹性好
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;functionalities&quot;, &quot;designed_for&quot;]"
+                        data-text="为了更健康的进行跑步，您需要有效保护自己的身体(关节, 后背和膝盖等）免受冲击和震动的影响。RUN ACTIVE 跑步鞋的缓震设计能够缓解跑步时不断产生的冲击。
+ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，降低受伤风险
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="{&quot;text&quot;:&quot;中型&quot;,&quot;title&quot;:&quot;足宽&quot;}
+足宽: 中等宽度"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面
+70% 聚酯纤维, 30% 聚氨酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚酯纤维，聚氨酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底
+50% 合成橡胶, 50% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;structurations&quot;, &quot;characteristics&quot;]"
+                        data-text="{&quot;text&quot;:&quot;10毫米&quot;,&quot;title&quot;:&quot;水滴&quot;}
+RUN ACTIVE 跑步鞋的落差是多少？: 鞋底前后部位有10毫米高度差。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;catch_line&quot;, &quot;characteristics&quot;]"
+                        data-text="缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！
+EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震性。鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;benefits&quot;, &quot;segmentation&quot;]"
+                        data-text="204克（39码）
+重量（克）:"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        200–250g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE 跑步鞋如何护理？: 我们建议您避免机器洗鞋，因为机器洗鞋会损坏鞋子的工艺和材料性能;它们可能会开胶或缩水，上部织物可能会撕裂。
+需要清洗时（沾上泥垢），我们建议用合成刷子沾肥皂水清洗。请勿使用漂白剂！请使用清水冲洗。
+禁止将鞋子放在热源处烘干。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        建议手洗，阴干，避免暴晒，避免烘干，局部清洁
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。
+频率: 偶尔运动使用"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="{&quot;text&quot;:&quot;非防水&quot;,&quot;title&quot;:&quot;防水&quot;}
+防水: 非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8559090</td>
+                    <td class="id-col">145826</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用足弓"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        正常足弓
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="男士；男士公路跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        男
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；0至10公里/周；跑步强度: 0至10公里/周"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟，周跑量≤20km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用配速"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        &gt;7分配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="地面: 公路、小路；地面: 公路、小路"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，森林小径
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="步伐类型: 中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;designed_for&quot;, &quot;web_label&quot;]"
+                        data-text="日常慢跑；ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；男士缓震短距轻量跑鞋 ACTIVE"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑，恢复跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sub_department&quot;, &quot;web_label&quot;]"
+                        data-text="慢跑鞋；男士缓震短距轻量跑鞋 ACTIVE"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;list_price&quot;, &quot;active_price&quot;]"
+                        data-text="149.9；149.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        149.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:44:25"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;, &quot;modelInfoName&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；男士缓震短距轻量跑鞋 ACTIVE；男士缓震短距轻量跑鞋
+RUN ACTIVE"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="日常慢跑；慢跑鞋；地面: 公路、小路；鞋子类型: 缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="配色方案"
+                        data-fields="[&quot;color_label&quot;, &quot;color&quot;]"
+                        data-text="深蓝色；蓝黑色"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        蓝黑色/浅鹅黄
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计风格"
+                        data-fields="[&quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="男士缓震短距轻量跑鞋 ACTIVE；ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        运动简约
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;catch_line&quot;, &quot;productPlusPoint&quot;, &quot;userBenefits&quot;]"
+                        data-text="位于跑鞋后跟内的CS®缓震系统能提供不错的缓震效果。；缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！；轻量减震。；缓震性: 位于跑鞋后跟内的CS®缓震系统能提供不错的缓震效果。；舒适性: 内衬设计穿着更舒适。；轻盈性: 约245g （43码）。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，轻量敏捷，舒适性
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;composition&quot;]"
+                        data-text="内衬设计穿着更舒适。；舒适性: 内衬设计穿着更舒适。；衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        高，包裹舒适，鞋垫柔软
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋面包裹"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="内衬设计穿着更舒适。；舒适性: 内衬设计穿着更舒适。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹性好
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;designed_for&quot;, &quot;webCatchline&quot;, &quot;productPlusPoint&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；轻量跑鞋，后跟带有减震系统设计更减震。；轻量减震。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，休闲跑适配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="足宽: 中等宽度；足宽: 中等宽度"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面
+70% 聚氨酯, 30% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚氨酯，聚酯纤维
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底
+50% 合成橡胶, 50% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;functionalities&quot;, &quot;characteristics&quot;]"
+                        data-text="鞋底前后部位有10毫米高度差。；坡差: 鞋底前后部位有10毫米高度差。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;catch_line&quot;]"
+                        data-text="缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;benefits&quot;, &quot;functionalities&quot;, &quot;characteristics&quot;, &quot;userBenefits&quot;]"
+                        data-text="约245g （43码）。；约245g （43码）。；重量: 约245g （43码）。；轻盈性: 约245g （43码）。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        250–300g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;storage_advice&quot;, &quot;storageAdvice&quot;]"
+                        data-text="穿着后建议放置在干爽通风的位置，避免阳光直射。；穿着后建议放置在干爽通风的位置，避免阳光直射。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        阴干，避免暴晒
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="季节: 四季；季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="防水: 非防水；防水: 非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[&quot;media&quot;]"
+                        data-text="https://pixl.decathlon.com.cn/p2155551/k$11e0e6f8f6f4906c580007288ce1bdd0/content.jpg"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="季节: 四季；季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8572326</td>
+                    <td class="id-col">100260</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="[{&#x27;text&#x27;: &#x27;女士&#x27;}]；女士日常慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        女
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；0至10公里/周；跑步强度: 0至10公里/周、10至30公里/周；频率: 偶尔运动使用"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟，周跑量≤20km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用配速"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        &gt;7分配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;designed_for&quot;, &quot;catch_line&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；3mm凸纹抓地力外底，无论平地公路还是轻型砂石路面，都能牢牢地踏稳每一步。；地面: 公路；地面: 公路、小路"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，轻越野
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;, &quot;designFor&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；我们设计团队开发的这款女式跑鞋可为长达10公里的长跑提供缓震和防滑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="步伐类型: 中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距抓地力跑鞋 ACTIVE GRIP；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距抓地力跑鞋 ACTIVE GRIP；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;list_price&quot;, &quot;active_price&quot;]"
+                        data-text="199.9；199.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        199.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:43:22"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；女士缓震短距抓地力跑鞋 ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；公路跑；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系，支撑稳定系
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;segmentation&quot;]"
+                        data-text="鞋跟处采用CS技术，提供良好缓震效果。；鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性；脚背的带状鞋带穿孔，提供更佳的支撑性能。；缓震性: 鞋跟处采用CS技术，提供良好缓震效果。；抓地力: 鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。；鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，抓地力，稳定支撑
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;characteristics&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。；舒适性: 脚跟和鞋舌处加厚泡沫。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹舒适，鞋垫柔软
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="稳定支撑性能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;segmentation&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。；鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        支撑型，足弓支撑强化
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋面包裹"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹性好，包裹感强
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;designed_for&quot;, &quot;designFor&quot;, &quot;webCatchline&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；我们设计团队开发的这款女式跑鞋可为长达10公里的长跑提供缓震和防滑性能。；带鞋钉，跑起来安全舒适，适合女士。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，休闲跑适配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="足宽: 中型；足宽: 中等宽度"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面
+50% 聚氨酯, 50% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚氨酯，聚酯纤维
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底
+60% 合成橡胶, 40% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;structurations&quot;, &quot;characteristics&quot;]"
+                        data-text="水滴: 10毫米；RUN ACTIVE GRIP 跑鞋的落差是多少？: &#x27;&#x27;落差&quot;即运动鞋的后部（鞋跟）和前部（前脚）之间的高度差。鞋底前后部位有10毫米高度差。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;functionalities&quot;, &quot;composition&quot;]"
+                        data-text="EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震效果。
+鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。；鞋底
+60% 合成橡胶, 40% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE 抓地跑鞋多重呢: 255克（38码）"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        250–300g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE GRIP 跑鞋如何护理？: 请勿机洗，这会破坏鞋子的物理特性，导致脚顶部的网格脱落、收缩或者撕裂。
+因此我们建议鞋子非常脏（粘上泥巴）时，可使用小型的合成刷子粘上肥皂水擦洗鞋子。请勿使用漂白剂！请使用清水冲洗。
+禁止将鞋子放在热源处烘干。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        建议手洗，阴干，避免暴晒，避免烘干，局部清洁
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="防水: 非防水；非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8608152</td>
+                    <td class="id-col">100260</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="[{&#x27;text&#x27;: &#x27;女士&#x27;}]；女士日常慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        女
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;designed_for&quot;, &quot;catch_line&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；3mm凸纹抓地力外底，无论平地公路还是轻型砂石路面，都能牢牢地踏稳每一步。；公路；公路、小路"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，轻越野
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距抓地力跑鞋 ACTIVE GRIP；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距抓地力跑鞋 ACTIVE GRIP；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;list_price&quot;, &quot;active_price&quot;]"
+                        data-text="199.9；199.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        199.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:42:43"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;designed_for&quot;, &quot;web_label&quot;, &quot;modelInfoName&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；女士缓震短距抓地力跑鞋 ACTIVE GRIP；女士缓震短距抓地力跑鞋
+RUN ACTIVE GRIP"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ACTIVE GRIP
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；公路跑；ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="鞋跟处采用CS技术，提供良好缓震效果。；鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性；脚背的带状鞋带穿孔，提供更佳的支撑性能。；缓震性: 鞋跟处采用CS技术，提供良好缓震效果。；抓地力: 鞋底3毫米凸纹，在平地或崎岖山路上具有更好的抓地性；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，抓地力，包裹舒适
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;functionalities&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。；舒适性: 脚跟和鞋舌处加厚泡沫。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹舒适，鞋垫柔软
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="稳定支撑性能"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;segmentation&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。；鞋子类型: 稳定性、缓震及稳定性能、缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        支撑型
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋面包裹"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="脚背的带状鞋带穿孔，提供更佳的支撑性能。；包裹性强: 脚背的带状鞋带穿孔，提供更佳的支撑性能。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹感强
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;designed_for&quot;, &quot;webCatchline&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；带鞋钉，跑起来安全舒适，适合女士。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，休闲跑适配
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="中型；足宽: 中等宽度"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面
+50% 聚氨酯, 50% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚氨酯，聚酯纤维
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底
+60% 合成橡胶, 40% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;characteristics&quot;, &quot;segmentation&quot;]"
+                        data-text="RUN ACTIVE GRIP 跑鞋的落差是多少？: &#x27;&#x27;落差&quot;即运动鞋的后部（鞋跟）和前部（前脚）之间的高度差。鞋底前后部位有10毫米高度差。；足跟差: 10毫米"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;functionalities&quot;]"
+                        data-text="EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震效果。
+鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE 抓地跑鞋多重呢: 255克（38码）"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        250–300g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;characteristics&quot;]"
+                        data-text="RUN ACTIVE GRIP 跑鞋如何护理？: 请勿机洗，这会破坏鞋子的物理特性，导致脚顶部的网格脱落、收缩或者撕裂。
+因此我们建议鞋子非常脏（粘上泥巴）时，可使用小型的合成刷子粘上肥皂水擦洗鞋子。请勿使用漂白剂！请使用清水冲洗。
+禁止将鞋子放在热源处烘干。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        建议手洗，阴干，避免暴晒，避免烘干，局部清洁
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE GRIP系列跑鞋，增强外底抓地力，适合轻越野路面跑步，1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="非防水；防水: 非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id-col">8608177</td>
+                    <td class="id-col">145853</td>
+                    <td class="dimension-cell" 
+                        data-dimension="质保与售后"
+                        data-fields="[&quot;guarantee&quot;]"
+                        data-text="2年"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2年
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用水平"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；运动水平: 初阶运动用户"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        入门
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用人群"
+                        data-fields="[&quot;genders&quot;, &quot;family&quot;]"
+                        data-text="[{&#x27;text&#x27;: &#x27;女士&#x27;}]；女士日常慢跑鞋"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        女
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用强度"
+                        data-fields="[&quot;designed_for&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；跑步强度: 0至10公里/周；跑步强度: 10-20公里/周"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        每周1-2次，每次30-60分钟，周跑量≤20km
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用路面"
+                        data-fields="[&quot;structurations&quot;, &quot;sub_department&quot;]"
+                        data-text="地面: 公路、小路；公路跑"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        公路，森林小径
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用距离"
+                        data-fields="[&quot;designed_for&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        ≤5km
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用脚型"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="步伐类型: 中性；步幅类型: 中性步态"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        中性步态
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用场景"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距轻量跑鞋 ACTIVE；ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        日常慢跑
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品类型"
+                        data-fields="[&quot;sports&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；女士缓震短距轻量跑鞋 ACTIVE；ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        专业跑步鞋
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="价格"
+                        data-fields="[&quot;list_price&quot;, &quot;active_price&quot;]"
+                        data-text="149.9；149.9"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        149.9 CNY
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="上市时间"
+                        data-fields="[&quot;create_time&quot;]"
+                        data-text="2026-01-24 05:43:34"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        2026-01
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="产品系列"
+                        data-fields="[&quot;family&quot;, &quot;web_label&quot;, &quot;designed_for&quot;]"
+                        data-text="女士日常慢跑鞋；女士缓震短距轻量跑鞋 ACTIVE；ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        KALENJI
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="运动细分与品类"
+                        data-fields="[&quot;sports&quot;, &quot;sub_department&quot;, &quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="[{&#x27;id&#x27;: 105, &#x27;text&#x27;: &#x27;日常慢跑&#x27;}]；公路跑；地面: 公路、小路；鞋子类型: 缓震性能"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        路跑，慢跑训练，缓震系
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="核心功能"
+                        data-fields="[&quot;benefits&quot;, &quot;productPlusPoint&quot;, &quot;userBenefits&quot;]"
+                        data-text="鞋跟处采用CS技术，提供良好缓震效果。；合成材质鞋带让其提供更好的固定性。；204克（39码）；减震、轻盈。；缓震性: 鞋跟处采用CS技术，提供良好缓震效果。；包裹性强: 合成材质鞋带让其提供更好的固定性。；轻盈性: 204克（39码）"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        缓震，轻量敏捷，包裹舒适
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="舒适性"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="合成材质鞋带让其提供更好的固定性。；包裹性强: 合成材质鞋带让其提供更好的固定性。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹舒适
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋面包裹"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;]"
+                        data-text="合成材质鞋带让其提供更好的固定性。；包裹性强: 合成材质鞋带让其提供更好的固定性。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        包裹性好
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="设计理念"
+                        data-fields="[&quot;functionalities&quot;, &quot;designed_for&quot;]"
+                        data-text="为了更健康的进行跑步，您需要有效保护自己的身体(关节, 后背和膝盖等）免受冲击和震动的影响。RUN ACTIVE 跑步鞋的缓震设计能够缓解跑步时不断产生的冲击。；ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        舒适长跑，降低受伤风险
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋楦宽度"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="足宽: 中等宽度；中型"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        标准楦(D/B)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="帮面材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="帮面
+70% 聚酯纤维, 30% 聚氨酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        聚酯纤维，聚氨酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="里料"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="鞋垫材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="衬里和内垫
+100% 聚酯纤维"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        100% 聚酯纤维
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="外底材质"
+                        data-fields="[&quot;composition&quot;]"
+                        data-text="鞋底
+50% 合成橡胶, 50% 醋酸乙烯酯"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        合成橡胶，醋酸乙烯酯
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="落差"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="水滴: 10毫米；足跟差: 10毫米"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        跟差10mm
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="中底材质"
+                        data-fields="[&quot;catch_line&quot;, &quot;functionalities&quot;]"
+                        data-text="缓震“双保险”，不仅采用EVA发泡中底，还嵌入KIPRUN CS®缓震系统，能力加倍！；EVA（乙烯-醋酸乙烯酯）泡沫不仅轻盈，还能提供良好的减震性。鞋跟处采用CS（循环系统）技术，并且其具有特殊形状，可优化减震效果。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        醋酸乙烯酯 (EVA)
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="重量"
+                        data-fields="[&quot;benefits&quot;, &quot;userBenefits&quot;, &quot;segmentation&quot;]"
+                        data-text="204克（39码）；轻盈性: 204克（39码）；重量（克）:"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        200–250g
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="保养建议"
+                        data-fields="[&quot;functionalities&quot;]"
+                        data-text="我们建议您避免机器洗鞋，因为机器洗鞋会损坏鞋子的工艺和材料性能;它们可能会开胶或缩水，上部织物可能会撕裂。
+需要清洗时（沾上泥垢），我们建议用合成刷子沾肥皂水清洗。请勿使用漂白剂！请使用清水冲洗。
+禁止将鞋子放在热源处烘干。"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        建议手洗，阴干，避免暴晒，避免烘干，局部清洁
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用温度"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        常温（0℃~25℃）
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天数"
+                        data-fields="[&quot;designed_for&quot;, &quot;segmentation&quot;]"
+                        data-text="ACTIVE系列跑鞋，集灵活与缓震性能于一身，适合跑步频率在1-2 次/周, 每次跑步时长45分钟左右，5km距离左右的休闲跑者。；频率: 偶尔运动使用"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        1-2天/周
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用天气"
+                        data-fields="[&quot;structurations&quot;, &quot;segmentation&quot;]"
+                        data-text="防水: 非防水；非防水"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        晴天
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用时段"
+                        data-fields="[]"
+                        data-text=""
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        白天
+                    </td>
+                    <td class="dimension-cell" 
+                        data-dimension="适用季节"
+                        data-fields="[&quot;segmentation&quot;]"
+                        data-text="季节: 四季"
+                        onmouseenter="showTooltip(event)"
+                        onmouseleave="hideTooltip(event)">
+                        四季通用
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Tooltip 容器 -->
+    <div id="tooltip" class="tooltip"></div>
+    
+    <script>
+        function showTooltip(event) {{
+            const cell = event.currentTarget;
+            try {{
+                const fieldsJson = cell.getAttribute('data-fields') || '[]';
+                const text = cell.getAttribute('data-text') || '';
+                const dimension = cell.getAttribute('data-dimension');
+            
+                const tooltip = document.getElementById('tooltip');
+                // 转义HTML以防止XSS
+                const escapeHtml = (str) => {{
+                    if (!str) return '';
+                    const div = document.createElement('div');
+                    div.textContent = str;
+                    return div.innerHTML;
+                }};
+                
+                // 解析data-fields（需要先解码HTML实体）
+                let fieldsArray = [];
+                try {{
+                    // 解码HTML实体（&quot; -> "）
+                    const decodedFields = fieldsJson.replace(/&quot;/g, '"').replace(/&#x27;/g, "'");
+                    fieldsArray = JSON.parse(decodedFields);
+                }} catch (e) {{
+                    console.error('解析fields失败:', e, '原始值:', fieldsJson);
+                    fieldsArray = [];
+                }}
+                
+                // 构建tooltip内容
+                const header = escapeHtml(dimension);
+                const fieldsHtml = fieldsArray.map(f => '<span class="tooltip-field-tag">' + escapeHtml(f) + '</span>').join('');
+                const textHtml = escapeHtml(text || '（无原文）');
+                
+                tooltip.innerHTML = 
+                    '<div class="tooltip-header">' + header + '</div>' +
+                    '<div class="tooltip-section">' +
+                    '<div class="tooltip-label">来源字段:</div>' +
+                    '<div class="tooltip-fields">' + fieldsHtml + '</div>' +
+                    '</div>' +
+                    '<div class="tooltip-section">' +
+                    '<div class="tooltip-label">原文内容:</div>' +
+                    '<div class="tooltip-text">' + textHtml + '</div>' +
+                    '</div>';
+            
+                // 定位tooltip
+                const rect = cell.getBoundingClientRect();
+                const tooltipRect = tooltip.getBoundingClientRect();
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                
+                let left = rect.right + 10;
+                let top = rect.top;
+                
+                // 如果右侧空间不足，显示在左侧
+                if (left + tooltipRect.width > window.innerWidth) {{
+                    left = rect.left - tooltipRect.width - 10;
+                }}
+                
+                // 如果下方空间不足，向上调整
+                if (top + tooltipRect.height > window.innerHeight) {{
+                    top = window.innerHeight - tooltipRect.height - 10;
+                }}
+                
+                tooltip.style.left = left + scrollX + 'px';
+                tooltip.style.top = top + scrollY + 'px';
+                tooltip.classList.add('show');
+            }} catch (e) {{
+                console.error('显示tooltip失败:', e);
+            }}
+        }}
+        
+        function hideTooltip(event) {{
+            const tooltip = document.getElementById('tooltip');
+            tooltip.classList.remove('show');
+        }}
+    </script>
+</body>
+</html>
